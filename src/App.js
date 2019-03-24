@@ -40,6 +40,11 @@ const App = () => {
           >
             Click me
           </button>
+
+          <p>
+            <img src={cat.file} alt="Meow" width="256" />
+          </p>
+
         </header>
       </div>
     );

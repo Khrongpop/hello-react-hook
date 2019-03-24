@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 const App = () => {
 
     const [count, setCount] = useState(0);
+
+    const [cat, setCat] = useState({});
+
+    const randomCat = () => axios.get('https://aws.random.cat/meow');
+    useEffect(() => {
+      randomCat().then(response => {
+        setCat(response.data)
+      })
+    },[]);
+
+    // ใส่ log เพื่อดูว่ามัน render ยังไง
+  console.log('render >>>')
+
 
     return (
       <div className="App">

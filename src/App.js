@@ -3,15 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
+const fetchCat = () => axios.get('https://aws.random.cat/meow');
+
+const initialState = {
+  isFetching: false,
+  cat: {},
+  count: 0
+}
+
 const App = () => {
 
     const [count, setCount] = useState(0);
 
     const [cat, setCat] = useState({});
 
-    const randomCat = () => axios.get('https://aws.random.cat/meow');
     useEffect(() => {
-      randomCat().then(response => {
+      fetchCat().then(response => {
         setCat(response.data)
       })
     },[]);
